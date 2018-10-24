@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary float-right mb-3">New Book</button>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Título</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Idioma</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Oferta</th>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books, let i=index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td scope="row">{{ book.titulo }}</td>
+          <td scope="row">{{ book.autor }}</td>
+          <td scope="row">{{ book.idioma }}</td>
+          <td scope="row">${{ book.precio}}</td>
+          <td scope="row">{{ book.oferta == 1 ? 'Si' : 'No' }}</td>
+          <td scope="row">
+            <button class="btn btn-primary">Update</button>
+          </td>
+          <td scope="row">
+            <a href="/admin/list-books" class="btn btn-danger"
+               (click)="onDeleteBook(book.id)">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
