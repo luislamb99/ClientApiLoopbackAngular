@@ -19,6 +19,7 @@ import {FormsModule} from "@angular/forms";
 
 // Services
 import { DataApiService } from "./services/data-api.service";
+import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { DataApiService } from "./services/data-api.service";
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    Page404Component
+    Page404Component,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

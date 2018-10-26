@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col">
-    <button class="btn btn-primary float-right mb-3">New Book</button>
+    <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalBook" (click)="resetForm()" >New Book</button>
     <table class="table table-hover">
       <thead>
       <tr>
@@ -23,7 +23,8 @@
           <td scope="row">${{ book.precio}}</td>
           <td scope="row">{{ book.oferta == 1 ? 'Si' : 'No' }}</td>
           <td scope="row">
-            <button class="btn btn-primary">Update</button>
+            <button class="btn btn-primary" (click)="onPreUpdate(book)"
+            data-toggle="modal" data-target="#modalBook">Update</button>
           </td>
           <td scope="row">
             <a href="/admin/list-books" class="btn btn-danger"
@@ -34,3 +35,5 @@
     </table>
   </div>
 </div>
+
+<app-modal></app-modal>

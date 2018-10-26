@@ -13,6 +13,17 @@ export class DataApiService {
 
   books: Observable<any>;
   book: Observable<any>;
+  public selectedBook: BookInterface = {
+    id: null,
+    titulo: '',
+    idioma: '',
+    descripcion: '',
+    portada: '',
+    precio: '',
+    link_amazon: '',
+    autor: '',
+    oferta: ''
+  };
 
   constructor( private http: HttpClient, private authService: AuthService ) {}
 
@@ -50,11 +61,11 @@ export class DataApiService {
       .pipe( map( data  => data));
   }
 
-  updateBook(book: BookInterface) {
+  updateBook(book) {
     // TODO: obtener token
     // TODO: not null
-    let token = this.authService.getToken();
-    const url_api = `http://localhost:3000/api/books?access_token=${ token }`;
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/books/${ book.bookId }/?access_token=${ token }`;
     return this.http.put<BookInterface>( url_api, book, { headers: this.headers } )
       .pipe( map( data  => data));
   }

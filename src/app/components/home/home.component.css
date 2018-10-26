@@ -35,3 +35,7 @@ h4.card-title {
   height: 120px;
   border-radius: 50%;
 }
+
+p.card-text {
+  text-align: justify;
+}
